@@ -1,0 +1,15 @@
+{%extends "layout.html.twig"%}
+{% block content %}
+    <article>
+    {{ form_start(form)}}
+    {{form_errors(form)}}
+    {{form_row(form.date)}}</br>
+    {{form_row(form.jour)}}</br>
+    {{form_row(form.depart)}}</br>
+    {{form_row(form.heure)}}</br>
+    {{form_row(form.ville)}}</br>
+    {{form_row(form.nombreKilometres)}}</br>
+    {{form_row(form.publierCetteOffre)}}
+    {{form_end(form)}}
+    </article>
+{% endblock %}

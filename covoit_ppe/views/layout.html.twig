@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <meta charset="utf-8">     
+        <title>Big Black Car</title>
+        <link href="{{ asset('/lib/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('/lib/bootstrap/css/truc.css') }}" rel="stylesheet">
+        <script src="{{asset('/lib/jquery/jquery.min.js')}}"></script>
+        
+    </head>
+    <body>
+        <div class="container">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                     <div class="navbar-header">
+                       <a class="navbar-brand" href="{{ path('homepage') }}">Accueil</a>
+                     </div>
+                     <ul class="nav navbar-nav">
+                        <li><a href="#">Offres</a>
+							<ul>
+								<li><a href="{{ path('creerOffer') }}">Ajouter une offre</a></li>
+								<li><a href="{{ path('listeOffers') }}">Consulter les offres</a></li>
+							</ul>
+						</li>
+						<li><a href="#">Utilisateurs</a>
+							<ul>
+								<li><a href="{{ path('creerUser') }}">Créer un utilisateur</a></li>
+								<li><a href="{{ path('listeUsers') }}">Liste des utilisateurs</a></li>
+							</ul>
+						</li>
+					 </ul>
+                </div>
+            </nav>
+            <section>
+                <h2>Big Black Car</h2>
+                {% block content %}
+                {% endblock %}
+            </section>
+            </br>
+            <footer class="footer">
+                <p>Merci qui ? Merci Big Black Car (BBC©)</p>
+            </footer>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,9 @@
+-cp src
+-lib record-macros
+-lib webwrap
+-D analyzer-optimize
+-main Index
+-php export
+
+--next
+-cmd rsync -avz export/ btebbani@www.sio-savary.fr:/home/covoit_bet/public_html/covoit_bet_ws

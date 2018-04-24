@@ -1,0 +1,54 @@
+{% extends "layout.html.twig"%}
+{% block content %}
+
+    <table id="myTable">
+        <tr class="header">
+            <th style="width:20%;">Nom</th>
+            <th style="width:10%;">Login</th>
+            <th style="width:10%;">Email</th>
+            <th style="width:10%;">Téléphone</th>
+        </tr>
+
+{%for unUser in users %}
+
+    {%set lastname=unUser.lastname %}
+    {%set firstname=unUser.firstname %}
+    {%set email=unUser.email %}
+    {%set phone=unUser.phone %}
+    {%set login=unUser.login %}
+
+   <tr>
+       <td>{{firstname}} {{lastname}}</td>
+       <td>{{login}}</td>
+       <td>{{email}}</td>
+       <td>{{phone}}</td>
+   </tr>
+   
+{% endfor %}   
+   
+</table>
+
+<script>
+function myFunction() {
+  // Declare variables
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[2];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
+
+{% endblock %}

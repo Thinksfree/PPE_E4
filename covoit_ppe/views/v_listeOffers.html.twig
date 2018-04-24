@@ -1,0 +1,81 @@
+{% extends "layout.html.twig"%}
+{% block content %}
+
+    <table id="myTable">
+        <tr class="header">
+            <th style="width:20%;">Conducteur</th>
+            <th style="width:10%;">Date du trajet</th>
+            <th style="width:10%;">Jour</th>
+            <th style="width:10%;">Heure</th>
+            <th style="width:15%;">Lieu Depart</th>
+            <th style="width:15%;">Ville</th>
+            <th style="width:5%;">Kilomètres</th>
+        </tr>
+
+{%for uneOffer in offers %}
+
+    {%set lastname=uneOffer.lastname %}
+    {%set firstname=uneOffer.firstname %}
+    {%set date=uneOffer.dte %}
+    {%set day=uneOffer.day %}
+    {%set depart=uneOffer.isFrom %}
+    {%set hour=uneOffer.hour %}
+    {%set city=uneOffer.city %}
+    {%set km=uneOffer.km %}
+
+    {% if depart==0 %}
+        {%set depart="Lycée" %}
+    {% else %}
+        {%set depart="Domicile" %}
+    {% endif %}
+
+    {% if day==0 %}
+        {%set day="Lundi" %}
+    {% elseif day==1 %}
+        {%set day="Mardi" %}
+    {% elseif day==2 %}
+        {%set day="Mercredi" %}
+    {% elseif day==3 %}
+        {%set day="Jeudi" %}        
+    {% elseif day==4 %}
+        {%set day="Vendredi" %}
+    {% endif %}
+
+   <tr>
+       <td>{{firstname}} {{lastname}}</td>
+       <td>{{date}}</td>
+       <td>{{day}}</td>
+       <td>{{hour}}</td>
+       <td>{{depart}}</td>
+       <td>{{city}}</td>
+       <td>{{km}} km</td>
+   </tr>
+   
+{% endfor %}   
+   
+</table>
+
+<script>
+function myFunction() {
+  // Declare variables
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[2];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
+
+{% endblock %}

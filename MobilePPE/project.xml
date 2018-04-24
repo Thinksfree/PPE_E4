@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+	<window height="480" width="320" background="0xfffffff" />
+	<meta title="PPECovoit" package="com.sample.ppecovoit" version="1.0.0" company="Company Name" />
+	<app main="Main" path="Export" file="PPECovoit" />
+	
+	<source path="Source" />
+	
+	<haxelib name="openfl" />
+	
+	<assets path="Assets" rename="assets" />
+	
+</project>
