@@ -1,10 +1,10 @@
 package;
 
-
 import openfl.display.Sprite;
 import buw.*;
 import haxe.Http;
 import haxe.Json;
+import haxe.crypto.Sha256;
 
 class CreateUser extends Sprite {
 	var main : VBox;
@@ -20,12 +20,12 @@ class CreateUser extends Sprite {
 		main.pack(new Title("Utilisateur"));
 		main.pack(new Separator());
 		
-		var g : Grid = new Grid([160, 160]);
-		lastname = new Input("", 20, 150);
-		firstname = new Input("", 20, 150);
-		email = new Input("", 20, 150);
-		phone = new Input("", 20, 150);
-		password = new Input("", 20, 150);
+		var g: Grid = new Grid (1, [new HBoxColumn(0.35),new HBoxColumn(0.65)]);
+		lastname = new Input("", 20, 1);
+		firstname = new Input("", 20, 1);
+		email = new Input("", 20, 1);
+		phone = new Input("", 20, 1);
+		password = new Input("", 20, 1);
 		
 		g.pack(new Label("Prénom :"));
 		g.pack(firstname);
@@ -40,30 +40,34 @@ class CreateUser extends Sprite {
 		
 		main.pack(g);
 		
-		main.pack(new TextButton(onClick, "Ajouter un utilisateur", 320));
+		main.pack(new TextButton(onClick, "Ajouter un utilisateur", 1));
 		
 		main.pack(new Separator());
-		main.pack(new TextButton(onClickAccueil, "Accueil", 320));
+		main.pack(new TextButton(onClickAccueil, "Accueil", 1));
 		
-		Toolkit.init(main);
+		Screen.display(main);
 	}
 	
 	function onClick(w: Control) {
 		var req = new Http("http://www.sio-savary.fr/covoit_bet/covoit_bet_ws/?user/");
+		req.addHeader("Cookie",Main.ckString);
+
         //generation login
 		var login : String = "";
 		var valpren : String = firstname.value;
 		var firstn : String = valpren.charAt(0);
 		login = login + firstn;
 		login = login + lastname.value;
+
+		var password : String = Sha256.encode(password.value);
 		
         req.setHeader("Content-Type", "application/json");
-        req.setPostData(Json.stringify({lastname : lastname.value, firstname: firstname.value, email : email.value, phone : phone.value,login : login,password : password.value}));
+        req.setPostData(Json.stringify({lastname : lastname.value, firstname: firstname.value, email : email.value, phone : phone.value,login : login,password : password}));
         req.request(true);
-		new Main();
+		new Accueil();
 	}
 	
 	function onClickAccueil(w: Control) {
-		new Main();
+		new Accueil();
 	}
 }

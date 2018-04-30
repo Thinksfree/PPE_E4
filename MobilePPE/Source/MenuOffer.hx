@@ -13,17 +13,22 @@ class MenuOffer extends Sprite {
 		main.pack(new Title("Menu des offres"));
 		main.pack(new Separator());
 		
-		main.pack(new TextButton(onClickCreateOffer, "Créer une offre", 320));
-		main.pack(new TextButton(onClickGetOffer, "Consulter les offres", 320));
+		main.pack(new TextButton(onClickCreateOfferPonc, "Créer une offre ponctuelle", 1));
+		main.pack(new TextButton(onClickCreateOfferPerm, "Créer une offre permanente", 1));
+		main.pack(new TextButton(onClickGetOffer, "Consulter les offres", 1));
 		
 		main.pack(new Separator());
-		main.pack(new TextButton(onClickAccueil, "Accueil", 320));
+		main.pack(new TextButton(onClickAccueil, "Accueil", 1));
 		
-		Toolkit.init(main);
+		Screen.display(main);
 	}
 	
-	function onClickCreateOffer(w: Control) {
-		new CreateOffer();
+	function onClickCreateOfferPonc(w: Control) {
+		new CreateOfferPonc();
+	}
+
+	function onClickCreateOfferPerm(w: Control) {
+		new CreateOfferPerm();
 	}
 	
 	function onClickGetOffer(w: Control) {
@@ -31,6 +36,6 @@ class MenuOffer extends Sprite {
 	}
 	
 	function onClickAccueil(w: Control) {
-		new Main();
+		new Accueil();
 	}
 }

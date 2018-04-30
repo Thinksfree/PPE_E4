@@ -14,13 +14,13 @@ class MenuUser extends Sprite {
 		main.pack(new Title("Menu des utilisateurs"));
 		main.pack(new Separator());
 		
-		main.pack(new TextButton(onClickCreateUser, "Créer un utilisateur", 320));
-		main.pack(new TextButton(onClickGetUser, "Consulter les utilisateurs", 320));
+		main.pack(new TextButton(onClickCreateUser, "Créer un utilisateur", 1));
+		main.pack(new TextButton(onClickGetUser, "Consulter les utilisateurs", 1));
 
 		main.pack(new Separator());
-		main.pack(new TextButton(onClickAccueil, "Accueil", 320));
+		main.pack(new TextButton(onClickAccueil, "Accueil", 1));
 		
-		Toolkit.init(main);
+		Screen.display(main);
 	}
 	
 	function onClickCreateUser(w: Control) {
@@ -32,6 +32,6 @@ class MenuUser extends Sprite {
 	}
 	
 	function onClickAccueil(w: Control) {
-		new Main();
+		new Accueil();
 	}
 }

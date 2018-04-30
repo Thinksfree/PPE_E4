@@ -5,37 +5,29 @@ import openfl.display.Sprite;
 import buw.*;
 import haxe.Http;
 import haxe.Json;
-
-typedef User = {
-	var idUser : String;
-	var lastname : String; 
-	var firstname : String; 
-	var email : String;
-	var phone : String; 
-	var login : String; 
-	var password : String;
-}
+import api.*;
 
 class GetUser extends Sprite {
 	var main : VBox;
-	var list : ListView<User>;
+	var list : ListView<GETUser>;
 	
 	public function new () {
 		super ();
 		main = new VBox();
 		
-		main.pack(new TextButton(onClick, "Afficher les utilisateurs", 320));
+		main.pack(new TextButton(onClick, "Afficher les utilisateurs", 1));
 		
 		main.pack(new Separator());
-		main.pack(new TextButton(onClickAccueil, "Accueil", 320));
+		main.pack(new TextButton(onClickAccueil, "Accueil", 1));
 		
-		Toolkit.init(main);
+		Screen.display(main);
 	}
 	
 	function onClick(w: Control) {
-		var r = new Http("http://www.sio-savary.fr/covoit_bet/covoit_bet_ws/?user/all");
+		var r = new Http("http://www.sio-savary.fr/covoit_bet/covoit_bet_ws/?/user/all");
+		r.addHeader("Cookie",Main.ckString);
 		r.onData=function(data: String){
-			var users : Array<User>=Json.parse(data);
+			var users : Array<GETUser>=Json.parse(data);
 			list = new ListView(renderUser);
 			list.source = users;
 			main.pack(list);
@@ -43,11 +35,11 @@ class GetUser extends Sprite {
 		r.request();
 	}
 
-	function renderUser(u : User) : Widget {
+	function renderUser(u : GETUser) : Widget {
 		return new Label(u.lastname + " " + u.firstname + " " + u.email + " " + u.phone + " " + u.login);
 	}
 	
 	function onClickAccueil(w: Control) {
-		new Main();
+		new Accueil();
 	}
 }
