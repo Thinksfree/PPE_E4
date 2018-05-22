@@ -187,5 +187,4 @@ class TestWsUser extends TestCase {
         } 
         req.customRequest(false, new BytesOutput(), "DELETE");
     }
-
 }

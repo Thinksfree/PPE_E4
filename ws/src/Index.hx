@@ -34,7 +34,7 @@ class Index {
     public static function dispatch(request : Request){ //point d'entrée de traitement d'une requete
         try {
             Manager.initialize();
-            Manager.cnx = PDO.open("mysql:host=localhost;dbname=covoit_bet", "sqlbtebbani", "savary");
+            Manager.cnx = PDO.open("mysql:host=localhost;dbname=bdbtebbani1", "sqlbtebbani", "savary");
             if(! TableCreate.exists(Offer.manager)){
                 TableCreate.create(Offer.manager);
             };

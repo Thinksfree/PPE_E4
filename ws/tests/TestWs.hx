@@ -9,7 +9,7 @@ class TestWs {
     public static var offer : Offer; 
     public static var user : User;
     public static var admin : User;
-    public static var WSURI : String = "http://www.sio-savary.fr/covoit_bet/covoit_bet_ws/";
+    public static var WSURI : String = "http://www.sio-savary.fr/btebbani/covoit_bet_ws/";
 
     public static function setup(){
         Manager.initialize();
@@ -19,7 +19,7 @@ class TestWs {
             user : "sqlbtebbani",
             pass : "savary",
             socket : null,
-            database : "covoit_bet"
+            database : "bdbtebbani1"
         });
         if(! TableCreate.exists(User.manager)){
             TableCreate.create(User.manager);
