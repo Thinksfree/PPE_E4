@@ -49,7 +49,7 @@ class CreateOfferPerm extends Sprite {
 	}
 	
 	function onClick(w: Control) {
-		var req = new Http("http://www.sio-savary.fr/covoit_bet/covoit_bet_ws/?offer/");
+		var req = new Http("http://www.sio-savary.fr/btebbani/covoit_bet_ws/?offer/");
 		req.addHeader("Cookie",Main.ckString);
 		var dte = null;
         req.setHeader("Content-Type", "application/json");

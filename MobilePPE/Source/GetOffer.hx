@@ -22,7 +22,7 @@ class GetOffer extends Sprite {
 	}
 	
 	function onClick(w: Control) {
-		var r = new Http("http://www.sio-savary.fr/covoit_bet/covoit_bet_ws/?offer/all");
+		var r = new Http("http://www.sio-savary.fr/btebbani/covoit_bet_ws/?offer/all");
 		r.addHeader("Cookie",Main.ckString);
 		r.onData=function(data: String){
 			var offers : Array<GETOffer>=Json.parse(data);

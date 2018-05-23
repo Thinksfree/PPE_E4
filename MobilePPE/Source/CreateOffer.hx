@@ -52,7 +52,7 @@ class CreateOffer extends Sprite {
 	}
 	
 	function onClick(w: Control) {
-		var req = new Http("http://www.sio-savary.fr/covoit_bet/covoit_bet_ws/?offer/");
+		var req = new Http("http://www.sio-savary.fr/btebbani/covoit_bet_ws/?offer/");
 		var idUser : String = "5823f09f-045a-4745-b460-329af78e9273";
         req.setHeader("Content-Type", "application/json");
         req.setPostData(Json.stringify({dte : dte, day: Std.parseInt(day.value), isFrom: Std.parseInt(isFrom.value), hour: hour, city : city, km : Std.parseInt(km.value), idUser : idUser}));

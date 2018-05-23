@@ -24,7 +24,7 @@ class GetUser extends Sprite {
 	}
 	
 	function onClick(w: Control) {
-		var r = new Http("http://www.sio-savary.fr/covoit_bet/covoit_bet_ws/?/user/all");
+		var r = new Http("http://www.sio-savary.fr/btebbani/covoit_bet_ws/?/user/all");
 		r.addHeader("Cookie",Main.ckString);
 		r.onData=function(data: String){
 			var users : Array<GETUser>=Json.parse(data);

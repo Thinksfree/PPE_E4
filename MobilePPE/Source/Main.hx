@@ -38,7 +38,7 @@ class Main extends Sprite {
 	}
 
 	function onClick(w: Control) {
-		var req = new Http("http://www.sio-savary.fr/covoit_bet/covoit_bet_ws/?/auth/");
+		var req = new Http("http://www.sio-savary.fr/btebbani/covoit_bet_ws/?/auth/");
 		ckString = "login=" + log.value + "; password=" + pwd.value;
 		req.addHeader("Cookie",ckString);
 		req.onData = function (data : String) {
