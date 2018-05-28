@@ -6,4 +6,4 @@
 -php export
 
 --next
--cmd rsync -avz export/ btebbani@www.sio-savary.fr:/home/covoit_bet/public_html/covoit_bet_ws
+-cmd rsync -avz export/ btebbani@www.sio-savary.fr:/home/btebbani/public_html/covoit_bet_ws

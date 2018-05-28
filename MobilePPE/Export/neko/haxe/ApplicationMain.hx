@@ -24,7 +24,7 @@ import haxe.macro.Expr;
 		
 		var config = {
 			
-			build: "6",
+			build: "7",
 			company: "Company Name",
 			file: "PPECovoit",
 			fps: 30,
